@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body, label, div, span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #222;
+}
+
+/* CONTROL PANEL */
+
+.controls {
+	flex-direction: column;
+	justify-content: flex-start;
+  padding: 20px;
+  height: 100vh;
+  background-color: #2a2a2a;
+}
+
+label, .player {
+	height: 30px;
+	margin-bottom: 20px;
+}
+
+/* GRID SIZE */
+
+label {
+  color: #ffc;
+  font: 18px Lato;
+}
+
+label input {
+  margin-left: 10px;
+}
+
+/* PLAYER CONTROLLERS */
+
+.player {
+	position: relative;
+	justify-content: space-between;
+	width: 100%;
+	height: 30px;
+}
+
+.player span {
+	color: #ffc;
+	font: 18px Lato;
+}
+
+.player-num {
+	width: 70px;
+	justify-content: flex-start;
+}
+
+.score {
+	justify-content: flex-end;
+	width: 20px;
+}
+
+.player input {
+	border: 0;
+}
+
+.col1 {
+	color: red;
+}
+
+.turn {
+	position: absolute;
+	color: #ffc;
+	right: -50px;
+  font-size: 30px;
+	transition: .3s;
+}
+
+.p2-turn {
+	margin-top: 100px;
+}
+
+/* PLAY AREA */
+
+.play-area {
+  flex-grow: 1;
+}
+
+canvas {
+  background-color: #111;
+  border-radius: 5px;
+}
