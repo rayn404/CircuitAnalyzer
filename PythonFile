@@ -1,0 +1,37 @@
+resistors = [[[0,0],[2,2],0],
+             [[2,2],[4,4],2],
+             [[4,4],[2,2],2],
+             [[4,4],[6,6],1]]
+
+nodes = []
+def node_find(new_resistors, change=False):
+    new_nodes = []
+    for i in range(len(new_resistors)):
+        if new_resistors[i][0] not in new_nodes:
+            new_nodes.append(new_resistors[i][0])
+        if new_resistors[i][1] not in new_nodes:
+            new_nodes.append(new_resistors[i][1])
+
+        indices = new_nodes.index(new_resistors[i][0]), new_nodes.index(new_resistors[i][1])
+        if indices[0]>indices[1]:
+            indices=indices[::-1]
+        new_resistors[i][0], new_resistors[i][1] = indices
+
+    if change:
+        global nodes, resistors
+        nodes, resistors= new_nodes, new_resistors
+    return new_nodes, new_resistors
+
+def parallel(new_resistors, change=False):
+    parallel = {}
+    for i in range(len(new_resistors)-1):
+        for j in range(i+1, len(new_resistors)):
+            if new_resistors[i][0:2] == new_resistors[j][0:2]:
+                tup_conn = tuple(new_resistors[i][0:2])
+                if tup_conn in parallel:
+                    parallel[tup_conn].add(i)
+                    parallel[tup_conn].add(j)
+                else:
+                    parallel[tup_conn] = {i, j}
+        
+print(node_find(resistors, True))
