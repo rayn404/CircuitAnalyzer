@@ -69,17 +69,6 @@ def series(new_res, change=False):
     series = []
     for i,j,r in new_res:
         node_count[i], node_count[j] = node_count.get(i, 0)+1, node_count.get(j, 0)+1
-    for r in range(len(new_res)):
-        if ((node_count[new_res[r][0]]==2 + node_count[new_res[r][1]]==2)>=1):
-            for j in range(len(series)):
-                comb_sorted = sorted(series[j][0:2]+new_res[r][0:2])
-                if (len(set(comb_sorted[0:2]))==1 + len(set(comb_sorted[0:2]))==1 + len(set(comb_sorted[0:2]))==1)==1:
-                    temp.extend([r,j])
-                    if comb_sorted[1]==comb_sorted[0]:
-                        series.append()
-            else:
-                temp.append(new_res[r])
-                series.append([new_res[r]])
     print(series) 
             
 
