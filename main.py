@@ -67,8 +67,14 @@ def series(new_res, change=False):
     node_count = dict()
     temp = []
     series = []
+    n_chk =lambda node: node_count[node]==2
     for i,j,r in new_res:
         node_count[i], node_count[j] = node_count.get(i, 0)+1, node_count.get(j, 0)+1
+    for res in new_res:
+        if n_chk(res[0]) or n_chk(res[1]):
+            for i in series:
+                if res[0] in series or res[1] in series:
+                    
     print(series) 
             
 
